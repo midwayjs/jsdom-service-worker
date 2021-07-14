@@ -1,3 +1,7 @@
 {
-  "extends": "./node_modules/mwts/"
+  "extends": "./node_modules/mwts/",
+  "env": {
+    "browser": true,
+    "serviceworker": true
+  }
 }

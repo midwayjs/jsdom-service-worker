@@ -6,7 +6,7 @@
   "types": "dist/src/index.d.ts",
   "scripts": {
     "prepare": "npm run build",
-    "build": "tsc -p . && cp src/streams.js dist/src/streams.js",
+    "build": "tsc -p . && cp src/*.js dist/src/",
     "test": "../../node_modules/.bin/jest"
   },
   "repository": {

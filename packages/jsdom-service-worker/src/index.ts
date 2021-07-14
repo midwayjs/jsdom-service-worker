@@ -4,6 +4,7 @@ import { TextDecoder, TextEncoder } from 'util';
 import { URL, URLSearchParams } from 'url';
 
 const createStream = require('./streams');
+const createEvents = require('./events');
 
 type StreamConstruction = {
   ReadableStream: ReadableStream;
@@ -52,6 +53,12 @@ function defineGlobalProperties(globalScope: any, properties: Dict<unknown>) {
 
 class JSWorkerWorkerGlobalScope {
   constructor(window: DOMWindow) {
+    const { ExtendableEvent, FetchEvent } = createEvents({
+      Event: window.Event,
+      DOMException: window.DOMException,
+      Response,
+    });
+
     defineGlobalProperties(this, {
       atob: window.atob,
       btoa: window.btoa,
@@ -71,9 +78,11 @@ class JSWorkerWorkerGlobalScope {
       // CacheStorage,
       CustomEvent: window.CustomEvent,
       DOMException: window.DOMException,
-      FormData: window.FormData,
       Event: window.Event,
       EventTarget: window.EventTarget,
+      ExtendableEvent,
+      FetchEvent,
+      FormData: window.FormData,
       Headers,
       Location: window.Location,
       ReadableStream,
@@ -121,3 +130,4 @@ class JSWorker {
 
 export { JSWorker };
 export const ServiceWorkerGlobalScope = JSWorkerServiceWorkerGlobalScope;
+export * from './types';
