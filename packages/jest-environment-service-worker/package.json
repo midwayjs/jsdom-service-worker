@@ -1,0 +1,32 @@
+{
+  "name": "@midwayjs/jest-environment-service-worker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "scripts": {
+    "prepare": "npm run build",
+    "build": "tsc -p .",
+    "test": "../../node_modules/.bin/jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/midwayjs/jsdom-service-worker.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/midwayjs/jsdom-service-worker/issues"
+  },
+  "homepage": "https://github.com/midwayjs/jsdom-service-worker#readme",
+  "engines": {
+    "node": ">= 12"
+  },
+  "dependencies": {
+    "@jest/types": "^27.0.6",
+    "@midwayjs/jsdom-service-worker": "^1.0.0",
+    "jest-mock": "^27.0.6"
+  },
+  "devDependencies": {
+  }
+}

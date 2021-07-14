@@ -1,0 +1,14 @@
+{
+  "extends": "./node_modules/mwts/tsconfig-midway.json",
+  "compilerOptions": {
+    "lib": ["WebWorker", "Webworker.Iterable", "ES2018"],
+    "moduleResolution": "node",
+    "stripInternal": true,
+    "strict": true,
+    "noEmitOnError": false,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowJs": false,
+    "checkJs": false,
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "name": "@midwayjs/jsdom-service-worker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "scripts": {
+    "prepare": "npm run build",
+    "build": "tsc -p . && cp src/streams.js dist/src/streams.js",
+    "test": "../../node_modules/.bin/jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/midwayjs/jsdom-service-worker.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/midwayjs/jsdom-service-worker/issues"
+  },
+  "homepage": "https://github.com/midwayjs/jsdom-service-worker#readme",
+  "engines": {
+    "node": ">= 12"
+  },
+  "dependencies": {
+    "jsdom": "^16.6.0",
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "@types/jsdom": "^16.2.13",
+    "@types/node-fetch": "^2.5.11"
+  }
+}
