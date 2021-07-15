@@ -7,5 +7,7 @@ describe('JSWorker', () => {
     const global = worker.global;
     assert.strictEqual(typeof global.ReadableStream, 'function');
     assert(!('window' in global));
+    assert('ServiceWorkerGlobalScope' in global);
+    assert(global instanceof global.ServiceWorkerGlobalScope);
   });
 });
