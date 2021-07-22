@@ -2,7 +2,9 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "prepare": "lerna bootstrap",
+    "prepare": "lerna bootstrap --no-ci",
+    "build": "lerna run build",
+    "test": "lerna run test",
     "lint": "mwts lint",
     "clean": "mwts clean",
     "fix": "mwts fix"

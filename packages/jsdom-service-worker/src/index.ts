@@ -1,6 +1,8 @@
+import { VirtualConsole } from 'jsdom';
 import fetch, { Blob, Headers, Request, Response } from 'node-fetch';
 import { TextDecoder, TextEncoder } from 'util';
 import { URL, URLSearchParams } from 'url';
+import { Context } from 'vm';
 
 const {
   createServiceWorkerGlobalScope,
@@ -43,11 +45,16 @@ function defineGlobalProperties(globalScope: any, properties: Dict<unknown>) {
 }
 
 class JSWorker {
+  context: Context;
   // TODO: define type
   global: typeof globalThis;
 
   constructor() {
-    const globalScope = createServiceWorkerGlobalScope({});
+    const virtualConsole = new VirtualConsole();
+    const globalScope = createServiceWorkerGlobalScope({
+      virtualConsole,
+      runScripts: 'dangerously',
+    });
     const { ExtendableEvent, FetchEvent } = createEvents({
       Event: globalScope.Event,
       DOMException: globalScope.DOMException,
@@ -71,7 +78,7 @@ class JSWorker {
       WritableStream,
       WritableStreamDefaultWriter,
     });
-    this.global = globalScope as any;
+    this.global = this.context = globalScope as any;
   }
 }
 

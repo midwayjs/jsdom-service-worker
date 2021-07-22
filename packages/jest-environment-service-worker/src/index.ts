@@ -1,4 +1,4 @@
-import { Context, createContext, runInContext } from 'vm';
+import { Context, runInContext } from 'vm';
 import { ModuleMocker } from 'jest-mock';
 import { JSWorker } from '@midwayjs/jsdom-service-worker';
 
@@ -11,7 +11,7 @@ class WorkerEnvironment {
 
   constructor() {
     this.worker = new JSWorker();
-    this.context = createContext(this.worker.global);
+    this.context = this.worker.context;
     const global = (this.global = runInContext('globalThis', this.context));
     global.global = global;
     global.Error.stackTraceLimit = Infinity;

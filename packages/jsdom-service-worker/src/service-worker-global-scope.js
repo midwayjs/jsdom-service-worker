@@ -185,25 +185,9 @@ function ServiceWorkerGlobalScope(options) {
   });
 
   define(this, {
-    get location() {
-      return idlUtils.wrapperForImpl(
-        idlUtils.implForWrapper(globalInstance._document)._location
-      );
-    },
+    // TODO: location, origin
     get performance() {
       return performance;
-    },
-    get origin() {
-      return globalInstance._origin;
-    },
-    // The origin IDL attribute is defined with [Replaceable].
-    set origin(value) {
-      Object.defineProperty(this, 'origin', {
-        value,
-        writable: true,
-        enumerable: true,
-        configurable: true,
-      });
     },
   });
 

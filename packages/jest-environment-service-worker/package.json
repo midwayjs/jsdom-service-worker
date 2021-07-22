@@ -5,8 +5,10 @@
   "main": "dist/src/index.js",
   "types": "dist/src/index.d.ts",
   "scripts": {
-    "prepare": "npm run build",
+    "prepare": "npm run clean build",
     "build": "tsc -p .",
+    "clean": "rm -rf dist",
+    "pretest": "npm run build",
     "test": "../../node_modules/.bin/jest"
   },
   "repository": {

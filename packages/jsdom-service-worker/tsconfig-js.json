@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "allowJs": true,
+    "declaration": false,
+    "declarationMap": false,
+  },
+  "exclude": [
+    "jest.config.js",
+    "dist",
+    "node_modules",
+  ]
+}

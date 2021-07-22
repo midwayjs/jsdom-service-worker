@@ -5,8 +5,10 @@
   "main": "dist/src/index.js",
   "types": "dist/src/index.d.ts",
   "scripts": {
-    "prepare": "npm run build",
-    "build": "tsc -p . && cp src/*.js dist/src/",
+    "prepare": "npm run clean build",
+    "build": "tsc -p . && tsc -p tsconfig-js.json",
+    "clean": "rm -rf dist",
+    "pretest": "npm run build",
     "test": "../../node_modules/.bin/jest"
   },
   "repository": {
