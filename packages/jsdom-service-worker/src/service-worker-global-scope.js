@@ -249,11 +249,6 @@ function ServiceWorkerGlobalScope(options) {
     args,
     { methodContext, repeat, previousHandle }
   ) {
-    // This appears to be unspecced, but matches browser behavior for close()ed windows.
-    if (!methodContext._document) {
-      return 0;
-    }
-
     // TODO: implement timer nesting level behavior.
 
     const methodContextProxy = methodContext._globalProxy;
