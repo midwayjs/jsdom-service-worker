@@ -36,6 +36,5 @@
   "devDependencies": {
     "@types/jsdom": "^16.2.13",
     "@types/node-fetch": "^2.5.11"
-  },
-  "gitHead": "4decd4433a76ffc8114431207ba3540a183e1a6e"
+  }
 }

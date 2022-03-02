@@ -28,6 +28,5 @@
     "@jest/types": "^27.0.6",
     "@midwayjs/jsdom-service-worker": "^0.0.1-alpha.4+4decd44",
     "jest-mock": "^27.0.6"
-  },
-  "gitHead": "4decd4433a76ffc8114431207ba3540a183e1a6e"
+  }
 }
