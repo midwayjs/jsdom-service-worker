@@ -8,6 +8,7 @@ describe('should bootstrap jest environment', () => {
   it('global should be worker global', () => {
     assert.strictEqual(typeof ReadableStream, 'function');
     assert(!('window' in globalThis));
+    assert(global instanceof ServiceWorkerGlobalScope);
   });
 
   it('construct Request', async () => {

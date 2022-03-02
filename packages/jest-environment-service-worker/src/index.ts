@@ -13,8 +13,14 @@ class WorkerEnvironment {
     this.worker = new JSWorker();
     this.context = this.worker.context;
     const global = (this.global = runInContext('globalThis', this.context));
+    const ServiceWorkerGlobalScope = runInContext(
+      'ServiceWorkerGlobalScope',
+      this.context
+    );
     global.global = global;
     global.Error.stackTraceLimit = Infinity;
+    // We cannot delegate the global proxy's prototype due to v8 limitations.
+    Object.setPrototypeOf(global, ServiceWorkerGlobalScope.prototype);
 
     // Node.js Specific globals, used in jest/source-map-support.
     const knownProcessAccess: PropertyKey[] = [
