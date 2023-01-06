@@ -6,8 +6,9 @@ describe('JSWorker', () => {
     const worker = new JSWorker();
     const global = worker.global;
     assert.strictEqual(typeof global.ReadableStream, 'function');
-    assert(!('window' in global));
-    assert('ServiceWorkerGlobalScope' in global);
+    // erase type to avoid typescript from discriminating the type of global.
+    assert(!('window' in (global as any)));
+    assert('ServiceWorkerGlobalScope' in (global as any));
     assert(global instanceof global.ServiceWorkerGlobalScope);
   });
 });
