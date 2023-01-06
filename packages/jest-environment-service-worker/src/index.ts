@@ -46,7 +46,10 @@ class WorkerEnvironment {
         if (processPropertyBlockList.includes(p)) {
           return undefined;
         }
-        if (!knownProcessAccess.includes(p)) {
+        if (
+          process.env.TRACE_UNKNOWN_PROCESS_ACCESS &&
+          !knownProcessAccess.includes(p)
+        ) {
           console.trace('access process', p);
         }
         return (target as any)[p];
